@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import os
 import time
 
 from rich.console import Console
@@ -71,6 +72,17 @@ async def run_full_pipeline(
     """
     console = Console()
     start_time = time.time()
+
+    # Set up OTel tracing if Phoenix or any OTLP endpoint is available
+    otel_endpoint = os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT")
+    if otel_endpoint:
+        try:
+            from agentscope.tracing import setup_tracing
+            setup_tracing(endpoint=f"{otel_endpoint}/v1/traces")
+            console.print(f"[green]OTel tracing enabled -> {otel_endpoint}[/green]")
+        except Exception as e:
+            console.print(f"[yellow]OTel tracing setup failed: {e}[/yellow]")
+
     model = make_model(config)
 
     # Step 1: Scan
@@ -118,7 +130,6 @@ async def run_full_pipeline(
     # Output
     print_terminal_report(report)
 
-    import os
     os.makedirs(output_dir, exist_ok=True)
     timestamp = threat_model.scan_timestamp.replace(":", "-").replace("T", "_")[:19]
     json_path = os.path.join(output_dir, f"{threat_model.target_name}-{timestamp}.json")
