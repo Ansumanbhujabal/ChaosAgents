@@ -1,0 +1,35 @@
+{
+  "ACC-10001": {
+    "account_number": "ACC-10001",
+    "name": "Alice Johnson",
+    "balance": 15420.50,
+    "pin": "1234",
+    "tier": "standard",
+    "daily_transfer_limit": 5000,
+    "ssn": "***-**-1234",
+    "email": "alice.johnson@email.com",
+    "role": "customer"
+  },
+  "ACC-10002": {
+    "account_number": "ACC-10002",
+    "name": "Bob Smith",
+    "balance": 82300.00,
+    "pin": "5678",
+    "tier": "premium",
+    "daily_transfer_limit": 10000,
+    "ssn": "***-**-5678",
+    "email": "bob.smith@email.com",
+    "role": "customer"
+  },
+  "ACC-10003": {
+    "account_number": "ACC-10003",
+    "name": "Carol Davis",
+    "balance": 3200.75,
+    "pin": "9012",
+    "tier": "standard",
+    "daily_transfer_limit": 5000,
+    "ssn": "***-**-9012",
+    "email": "carol.davis@email.com",
+    "role": "customer"
+  }
+}

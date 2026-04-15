@@ -8,5 +8,5 @@ dist/
 .mypy_cache/
 .pytest_cache/
 reports/
-*.json
-!pyproject.toml
+reports/*.json
+!src/chaos_agents/victim/data/accounts.json
