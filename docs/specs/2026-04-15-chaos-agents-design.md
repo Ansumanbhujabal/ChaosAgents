@@ -10,7 +10,35 @@
 
 ---
 
-## 1. Problem Statement
+## 1. Inspiration & Vision
+
+**Inspired by Netflix's Chaos Monkey** — the tool that revolutionized infrastructure resilience by randomly killing production instances to prove systems could survive failure. Chaos Monkey proved that the only way to know your system is resilient is to actively try to break it.
+
+**Chaos Agents is the AI-native evolution of that idea.** Where Chaos Monkey tests infrastructure resilience (can your servers survive a crash?), Chaos Agents tests AI agent resilience (can your agents survive adversarial manipulation?). The attack surface is fundamentally different — AI systems fail through prompt injection, memory poisoning, and tool abuse, not just hardware failures.
+
+No equivalent tool exists today. Traditional security tools don't understand agent architectures. LLM red-teaming tools focus on single-model testing, not multi-agent systems. Chaos Agents bridges this gap.
+
+---
+
+## 2. Goals
+
+### Learning Goal
+Deep, implementation-based mastery of AgentScope — touching all 20 major features (agents, pipelines, RAG, memory, tools, tracing, evaluation, planning, and more) through a single cohesive project.
+
+### Portfolio Goal
+A standout project for job interviews (targeting AI architect/AIOps roles). Demonstrates:
+- Multi-agent system design and orchestration
+- Security thinking and adversarial AI understanding
+- AIOps and observability (OTel instrumentation, blind spot detection)
+- Production architecture patterns (CLI, structured output, CI/CD integration)
+- Scale thinking (distributed eval, phased roadmap from static to adaptive)
+
+### Product Goal
+A reusable AI red team framework that any team can point at their AgentScope app to discover vulnerabilities — eventually extensible to other agent frameworks.
+
+---
+
+## 3. Problem Statement
 
 AI agent systems are increasingly deployed in production but lack standardized security and resilience testing tools. Unlike traditional software (which has fuzzers, pen-testing frameworks, chaos engineering tools), multi-agent LLM systems have no equivalent for:
 
@@ -24,7 +52,7 @@ Chaos Agents fills this gap — a multi-agent red team framework that automatica
 
 ---
 
-## 2. Target Audience
+## 4. Target Audience
 
 - **Primary:** The builder (Ansuman) — learning project to demonstrate mastery of AgentScope
 - **Secondary:** AI/ML engineers who want to stress-test their own agent systems
@@ -34,7 +62,7 @@ Designed as a learning project, architected for reusability.
 
 ---
 
-## 3. High-Level Architecture
+## 5. High-Level Architecture
 
 ```
 +-----------------------------------------------------------+
@@ -87,7 +115,7 @@ Designed as a learning project, architected for reusability.
 
 ---
 
-## 4. The Victim App — HelpDesk Bot
+## 6. The Victim App — HelpDesk Bot
 
 A RAG-based customer support bot built entirely with AgentScope features. Ships with the project as the default attack target. Uses a finance/banking domain for rich attack surface, but the attack agents are domain-agnostic — the Scanner auto-discovers the domain.
 
@@ -131,7 +159,7 @@ User Query
 
 ---
 
-## 5. Scanner Agent — Auto-Discovery
+## 7. Scanner Agent — Auto-Discovery
 
 A ReActAgent that reads a target codebase and generates a domain-aware ThreatModel. This is the key differentiator — attacks are tailored to the actual target, not generic.
 
@@ -230,7 +258,7 @@ class ThreatModel(BaseModel):
 
 ---
 
-## 6. Attack Squad — 7 Specialized Agents
+## 8. Attack Squad — 7 Specialized Agents
 
 Each agent is a ReActAgent with specialized tools. All receive the ThreatModel as input and use `domain_context` to generate relevant payloads.
 
@@ -339,7 +367,7 @@ class AttackResult(BaseModel):
 
 ---
 
-## 7. Commander Agent — Orchestration
+## 9. Commander Agent — Orchestration
 
 The brain of the system. Receives user commands (CLI or REPL), dispatches Scanner, plans attacks, orchestrates execution.
 
@@ -384,7 +412,7 @@ If the Scanner finds no RAG setup, Commander does not dispatch RAG Poison Agent.
 
 ---
 
-## 8. Reporter Agent — Output Generation
+## 10. Reporter Agent — Output Generation
 
 ### Output Schema
 
@@ -431,7 +459,7 @@ class ChaosReport(BaseModel):
 
 ---
 
-## 9. CLI & Interactive Mode
+## 11. CLI & Interactive Mode
 
 ### CLI Mode
 
@@ -470,7 +498,7 @@ Built with Click for CLI, UserAgent for REPL loop. Interactive mode streams MsgH
 
 ---
 
-## 10. AgentScope Feature Coverage
+## 12. AgentScope Feature Coverage
 
 | # | AgentScope Feature | Where used in Chaos Agents |
 |---|---|---|
@@ -497,7 +525,7 @@ Built with Click for CLI, UserAgent for REPL loop. Interactive mode streams MsgH
 
 ---
 
-## 11. Project Structure
+## 13. Project Structure
 
 ```
 ChaosAgents/
@@ -563,7 +591,7 @@ ChaosAgents/
 
 ---
 
-## 12. Phased Roadmap
+## 14. Phased Roadmap
 
 ### Phase A (Current) — Static Analysis
 
@@ -591,7 +619,7 @@ ChaosAgents/
 
 ---
 
-## 13. Technology Stack
+## 15. Technology Stack
 
 | Component | Technology |
 |---|---|
@@ -611,7 +639,7 @@ ChaosAgents/
 
 ---
 
-## 14. Constraints & Decisions
+## 16. Constraints & Decisions
 
 - **Azure OpenAI only** for now — all model calls go through Azure endpoints
 - **Phase A is static analysis only** — scanner reads code, does not probe live systems
