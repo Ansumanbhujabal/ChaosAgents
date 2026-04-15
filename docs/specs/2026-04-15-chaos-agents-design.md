@@ -20,21 +20,9 @@ No equivalent tool exists today. Traditional security tools don't understand age
 
 ---
 
-## 2. Goals
+## 2. Goal
 
-### Learning Goal
-Deep, implementation-based mastery of AgentScope — touching all 20 major features (agents, pipelines, RAG, memory, tools, tracing, evaluation, planning, and more) through a single cohesive project.
-
-### Portfolio Goal
-A standout project for job interviews (targeting AI architect/AIOps roles). Demonstrates:
-- Multi-agent system design and orchestration
-- Security thinking and adversarial AI understanding
-- AIOps and observability (OTel instrumentation, blind spot detection)
-- Production architecture patterns (CLI, structured output, CI/CD integration)
-- Scale thinking (distributed eval, phased roadmap from static to adaptive)
-
-### Product Goal
-A reusable AI red team framework that any team can point at their AgentScope app to discover vulnerabilities — eventually extensible to other agent frameworks.
+A reusable AI red team framework that any team can point at their AgentScope app to discover vulnerabilities — covering prompt injection, memory poisoning, tool abuse, RAG poisoning, stress testing, multi-agent manipulation, and observability blind spots. Designed to be extensible to other agent frameworks in the future.
 
 ---
 
