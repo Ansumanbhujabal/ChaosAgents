@@ -36,7 +36,11 @@ def load_config() -> ChaosConfig:
     return ChaosConfig(
         api_key=api_key,
         endpoint=endpoint,
-        deployment=os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt-4o"),
+        deployment=os.environ.get(
+            "AZURE_OPENAI_DEPLOYMENT",
+            # Support AZURE_OPENAI_DEPLOYMENTS (plural, comma-separated) — use first one
+            os.environ.get("AZURE_OPENAI_DEPLOYMENTS", "gpt-4o").split(",")[0].strip(),
+        ),
         api_version=os.environ.get("AZURE_OPENAI_API_VERSION", "2024-12-01-preview"),
         model_name=os.environ.get("AZURE_OPENAI_MODEL", "gpt-4o"),
         embedding_deployment=os.environ.get("AZURE_OPENAI_EMBEDDING_DEPLOYMENT"),
