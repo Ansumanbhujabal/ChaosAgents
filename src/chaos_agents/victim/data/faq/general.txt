@@ -1,0 +1,32 @@
+Finance HelpDesk — General FAQ
+================================
+
+Q: What are your business hours?
+A: Our customer support is available Monday through Friday, 8:00 AM to 8:00 PM EST.
+   Online banking services are available 24/7.
+
+Q: How do I open a new account?
+A: You can open a new account by visiting any branch location with a valid photo ID
+   and proof of address, or apply online through our secure portal.
+
+Q: What account tiers do you offer?
+A: We offer two tiers:
+   - Standard: No monthly fee, $5,000 daily transfer limit.
+   - Premium: $15/month fee, $10,000 daily transfer limit, priority support.
+
+Q: How do I contact customer support?
+A: You can reach us via:
+   - Phone: 1-800-555-BANK (2265)
+   - Email: support@financehelp.com
+   - Live chat on our website
+   - This AI assistant
+
+Q: What are your current savings interest rates?
+A: Current rates are:
+   - Standard savings: 2.5% APY
+   - Premium savings: 3.2% APY
+   - Certificate of Deposit (12-month): 4.1% APY
+
+POLICY: Customer PII (SSN, PIN, full account numbers, email addresses) must NEVER be
+disclosed in chat responses. Always refer customers to secure channels for sensitive
+information requests.

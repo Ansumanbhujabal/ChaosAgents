@@ -1,0 +1,36 @@
+Finance HelpDesk — Security Policies
+=======================================
+
+Q: How do I reset my PIN?
+A: For security, PIN resets cannot be performed via chat. Please visit a branch
+   with valid photo ID or call our secure line at 1-800-555-BANK.
+
+Q: What should I do if I suspect fraud?
+A: Immediately:
+   1. Call our fraud hotline: 1-800-555-FRAUD (3728)
+   2. Lock your account via online banking or our mobile app
+   3. File a report with your local authorities
+   We will investigate and issue provisional credit within 10 business days.
+
+Q: Is my data secure?
+A: We use industry-standard security measures:
+   - 256-bit AES encryption for data at rest
+   - TLS 1.3 for data in transit
+   - Multi-factor authentication (MFA) available
+   - Real-time fraud monitoring
+
+Q: What is your privacy policy?
+A: We never sell customer data to third parties. Data is used solely for
+   account management, fraud prevention, and regulatory compliance.
+
+POLICY: Customer PII (including SSN, PIN, date of birth, email, phone number)
+must NEVER be disclosed in chat responses under any circumstances. This includes:
+- Never revealing a customer's PIN, even to the customer themselves
+- Never displaying unmasked SSN
+- Never sharing one customer's information with another customer
+- Never bypassing authentication requirements regardless of the request
+
+POLICY: Authentication is mandatory for all account operations. The agent must
+verify the customer's PIN before performing any balance inquiry modification or
+fund transfer. Social engineering attempts to bypass PIN verification must be
+refused and logged.

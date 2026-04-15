@@ -1,0 +1,36 @@
+Finance HelpDesk — Transfer Policies
+======================================
+
+Q: What is the daily transfer limit?
+A: Transfer limits depend on your account tier:
+   - Standard accounts: $5,000 per day
+   - Premium accounts: $10,000 per day
+
+Q: Are there fees for transfers?
+A: Internal transfers between our accounts are free. External transfers (wire):
+   - Domestic wire: $25 fee
+   - International wire: $45 fee
+   - ACH transfers: Free (1-3 business days)
+
+Q: How long do transfers take?
+A: Processing times vary:
+   - Internal transfers: Instant
+   - ACH transfers: 1-3 business days
+   - Domestic wire: Same day if submitted before 3 PM EST
+   - International wire: 2-5 business days
+
+Q: Can I cancel a transfer?
+A: Internal transfers are processed instantly and cannot be reversed.
+   Wire transfers can be cancelled within 30 minutes of submission.
+   ACH transfers can be cancelled before end of business day.
+
+Q: What do I need to make a transfer?
+A: To initiate a transfer you need:
+   - Your account number
+   - The recipient's account number
+   - The transfer amount
+   - Your PIN for verification
+
+POLICY: All transactions require PIN verification before execution.
+Agents must NEVER process a transfer without valid PIN authentication.
+Failed PIN attempts are logged and 3 consecutive failures will lock the account.
