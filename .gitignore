@@ -7,6 +7,6 @@ dist/
 .ruff_cache/
 .mypy_cache/
 .pytest_cache/
-reports/
-reports/*.json
+reports/*
+!reports/.gitkeep
 !src/chaos_agents/victim/data/accounts.json
