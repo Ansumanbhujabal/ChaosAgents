@@ -73,15 +73,32 @@ async def run_full_pipeline(
     console = Console()
     start_time = time.time()
 
-    # Set up OTel tracing if Phoenix or any OTLP endpoint is available
-    otel_endpoint = os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT")
-    if otel_endpoint:
-        try:
-            from agentscope.tracing import setup_tracing
-            setup_tracing(endpoint=f"{otel_endpoint}/v1/traces")
-            console.print(f"[green]OTel tracing enabled -> {otel_endpoint}[/green]")
-        except Exception as e:
-            console.print(f"[yellow]OTel tracing setup failed: {e}[/yellow]")
+    # Initialize AgentScope with observability
+    # Priority: Studio (full visualization) > external OTel > none
+    studio_url = os.environ.get("AGENTSCOPE_STUDIO_URL")
+    tracing_url = os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT")
+
+    try:
+        import agentscope
+        if studio_url:
+            agentscope.init(
+                project="chaos-agents",
+                name="chaos-run",
+                studio_url=studio_url,
+            )
+            console.print(f"[green]AgentScope Studio connected -> {studio_url}[/green]")
+            console.print(f"[green]Tracing + message visualization enabled[/green]")
+        elif tracing_url:
+            agentscope.init(
+                project="chaos-agents",
+                name="chaos-run",
+                tracing_url=f"{tracing_url}/v1/traces",
+            )
+            console.print(f"[green]OTel tracing enabled -> {tracing_url}[/green]")
+        else:
+            console.print("[dim]No Studio or tracing configured (set AGENTSCOPE_STUDIO_URL or OTEL_EXPORTER_OTLP_ENDPOINT)[/dim]")
+    except Exception as e:
+        console.print(f"[yellow]Observability setup failed: {e}[/yellow]")
 
     model = make_model(config)
 
