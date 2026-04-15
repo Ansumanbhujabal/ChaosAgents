@@ -4,24 +4,26 @@ from __future__ import annotations
 
 import asyncio
 import time
-from typing import Callable
 
 from rich.console import Console
 
-from chaos_agents.config import ChaosConfig, make_model
-from chaos_agents.models import ThreatModel, AttackResult
-from chaos_agents.agents.scanner import run_scan
-from chaos_agents.agents.prompt_injection import run_prompt_injection_attack
 from chaos_agents.agents.memory_poison import run_memory_poison_attack
-from chaos_agents.agents.tool_abuse import run_tool_abuse_attack
-from chaos_agents.agents.rag_poison import run_rag_poison_attack
-from chaos_agents.agents.stress_test import run_stress_test_attack
 from chaos_agents.agents.multi_agent_manip import run_multi_agent_manipulation_attack
 from chaos_agents.agents.observability_audit import run_observability_audit
+from chaos_agents.agents.prompt_injection import run_prompt_injection_attack
+from chaos_agents.agents.rag_poison import run_rag_poison_attack
 from chaos_agents.agents.reporter import build_chaos_report
-from chaos_agents.tools.report_tools import print_terminal_report, generate_json_report, generate_markdown_report
+from chaos_agents.agents.scanner import run_scan
+from chaos_agents.agents.stress_test import run_stress_test_attack
+from chaos_agents.agents.tool_abuse import run_tool_abuse_attack
+from chaos_agents.config import ChaosConfig, make_model
+from chaos_agents.models import ThreatModel
+from chaos_agents.tools.report_tools import (
+    generate_json_report,
+    generate_markdown_report,
+    print_terminal_report,
+)
 from chaos_agents.victim.app import query_helpdesk
-
 
 ATTACK_REGISTRY = {
     "prompt_injection": {

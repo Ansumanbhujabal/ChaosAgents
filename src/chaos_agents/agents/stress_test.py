@@ -5,7 +5,7 @@ from __future__ import annotations
 import asyncio
 import time
 
-from chaos_agents.models import ThreatModel, AttackResult, Payload, Vulnerability
+from chaos_agents.models import AttackResult, Payload, ThreatModel, Vulnerability
 
 
 async def run_stress_test_attack(

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import time
 
-from chaos_agents.models import ThreatModel, AttackResult, Payload, Vulnerability
+from chaos_agents.models import AttackResult, Payload, ThreatModel, Vulnerability
 
 
 async def run_tool_abuse_attack(

@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 from chaos_agents.models import (
-    ThreatModel,
     AttackResult,
     ChaosReport,
-    VulnCount,
     Recommendation,
+    ThreatModel,
+    VulnCount,
 )
 
 

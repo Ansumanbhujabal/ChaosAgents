@@ -7,8 +7,8 @@ import os
 import random
 from datetime import datetime, timedelta
 
-from agentscope.tool import ToolResponse
 from agentscope.message import TextBlock
+from agentscope.tool import ToolResponse
 
 # Default path to accounts data
 _DEFAULT_ACCOUNTS_PATH = os.path.join(

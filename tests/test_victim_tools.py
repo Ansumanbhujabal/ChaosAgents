@@ -1,6 +1,5 @@
 """Tests for victim app banking tools."""
 
-import json
 import os
 import shutil
 
@@ -8,7 +7,6 @@ import pytest
 
 from chaos_agents.victim.tools import (
     get_balance,
-    get_transaction_history,
     load_accounts,
     transfer_funds,
 )

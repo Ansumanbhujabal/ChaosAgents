@@ -1,6 +1,5 @@
 """Tests for attack interaction tools."""
 
-import pytest
 from chaos_agents.tools.attack_tools import format_attack_result
 
 

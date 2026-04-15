@@ -38,7 +38,7 @@ def scan(target: str):
     console.print(f"[bold]Scanning: {target}[/bold]")
     threat_model = asyncio.run(run_scan_only(config, os.path.abspath(target)))
 
-    console.print(f"\n[green]Scan complete![/green]")
+    console.print("\n[green]Scan complete![/green]")
     console.print(f"  Target: {threat_model.target_name}")
     console.print(f"  Domain: {threat_model.domain_context.domain}")
     console.print(f"  Agents: {len(threat_model.agents_found)}")

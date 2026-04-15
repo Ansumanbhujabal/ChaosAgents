@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-import json
-
 from agentscope.agent import ReActAgent
 from agentscope.formatter import OpenAIChatFormatter
 from agentscope.memory import InMemoryMemory
@@ -11,8 +9,11 @@ from agentscope.message import Msg
 from agentscope.tool import Toolkit
 
 from chaos_agents.models import ThreatModel
-from chaos_agents.tools.scan_tools import scan_find_files, scan_search_pattern, scan_read_file
-
+from chaos_agents.tools.scan_tools import (
+    scan_find_files,
+    scan_read_file,
+    scan_search_pattern,
+)
 
 SCANNER_PROMPT = """You are a security scanner for AI agent applications built with AgentScope.
 

@@ -1,9 +1,20 @@
 """Tests for report generation tools."""
 
 import json
+
 import pytest
-from chaos_agents.models import ChaosReport, ThreatModel, DomainContext, OTelCoverage, VulnCount
-from chaos_agents.tools.report_tools import generate_json_report, generate_markdown_report
+
+from chaos_agents.models import (
+    ChaosReport,
+    DomainContext,
+    OTelCoverage,
+    ThreatModel,
+    VulnCount,
+)
+from chaos_agents.tools.report_tools import (
+    generate_json_report,
+    generate_markdown_report,
+)
 
 
 @pytest.fixture

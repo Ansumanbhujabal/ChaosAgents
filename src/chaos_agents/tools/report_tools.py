@@ -5,9 +5,8 @@ from __future__ import annotations
 import json
 
 from rich.console import Console
-from rich.table import Table
 from rich.panel import Panel
-from rich.text import Text
+from rich.table import Table
 
 from chaos_agents.models import ChaosReport
 
@@ -110,17 +109,17 @@ def generate_markdown_report(report: ChaosReport, output_path: str) -> None:
     """Save report as Markdown."""
     vc = report.vulnerability_count
     lines = [
-        f"# Chaos Agents Security Report",
-        f"",
+        "# Chaos Agents Security Report",
+        "",
         f"**Target:** {report.target}",
         f"**Domain:** {report.domain}",
         f"**Scan Time:** {report.scan_timestamp}",
         f"**Overall Risk:** {report.overall_risk}",
-        f"",
-        f"## Summary",
-        f"",
-        f"| Metric | Value |",
-        f"|--------|-------|",
+        "",
+        "## Summary",
+        "",
+        "| Metric | Value |",
+        "|--------|-------|",
         f"| Critical | {vc.critical} |",
         f"| High | {vc.high} |",
         f"| Medium | {vc.medium} |",
@@ -129,42 +128,42 @@ def generate_markdown_report(report: ChaosReport, output_path: str) -> None:
         f"| OTel Coverage | {report.otel_coverage_pct:.0f}% |",
         f"| Execution Time | {report.execution_time_seconds:.1f}s |",
         f"| Tokens Used | {report.total_tokens_used} |",
-        f"",
-        f"## Attack Results",
-        f"",
+        "",
+        "## Attack Results",
+        "",
     ]
 
     for result in report.attack_results:
         lines.append(f"### {result.attack_type}")
-        lines.append(f"")
+        lines.append("")
         lines.append(f"- Payloads: {len(result.payloads_tried)}")
         lines.append(f"- Vulnerabilities: {len(result.vulnerabilities_found)}")
         lines.append(f"- Success Rate: {result.success_rate:.0%}")
         lines.append(f"- Severity: {result.overall_severity}")
-        lines.append(f"")
+        lines.append("")
 
         for vuln in result.vulnerabilities_found:
             lines.append(f"#### [{vuln.severity}] {vuln.title}")
-            lines.append(f"")
+            lines.append("")
             lines.append(f"- **Component:** {vuln.component}")
             lines.append(f"- **Description:** {vuln.description}")
             lines.append(f"- **Evidence:** {vuln.evidence[:300]}")
             lines.append(f"- **Remediation:** {vuln.remediation}")
-            lines.append(f"")
+            lines.append("")
 
     if report.blind_spots:
-        lines.append(f"## Observability Blind Spots")
-        lines.append(f"")
+        lines.append("## Observability Blind Spots")
+        lines.append("")
         for spot in report.blind_spots:
             lines.append(f"- {spot}")
-        lines.append(f"")
+        lines.append("")
 
     if report.recommendations:
-        lines.append(f"## Recommendations")
-        lines.append(f"")
+        lines.append("## Recommendations")
+        lines.append("")
         for rec in report.recommendations:
             lines.append(f"- **[{rec.priority}] {rec.title}:** {rec.description}")
-        lines.append(f"")
+        lines.append("")
 
     with open(output_path, "w") as f:
         f.write("\n".join(lines))

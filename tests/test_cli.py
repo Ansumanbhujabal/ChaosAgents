@@ -1,6 +1,7 @@
 """Smoke tests for CLI commands."""
 
 from click.testing import CliRunner
+
 from chaos_agents.cli import cli
 
 

@@ -3,16 +3,15 @@
 from __future__ import annotations
 
 import asyncio
-import re
 
 from agentscope.agent import UserAgent
 from agentscope.message import Msg
 
 from .agents import (
-    create_router_agent,
-    create_faq_agent,
     create_account_agent,
     create_escalation_agent,
+    create_faq_agent,
+    create_router_agent,
 )
 
 

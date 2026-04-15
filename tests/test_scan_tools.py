@@ -3,9 +3,11 @@
 import os
 import tempfile
 
-import pytest
-
-from chaos_agents.tools.scan_tools import find_python_files, search_pattern_in_file, read_file_content
+from chaos_agents.tools.scan_tools import (
+    find_python_files,
+    read_file_content,
+    search_pattern_in_file,
+)
 
 
 def test_find_python_files():
