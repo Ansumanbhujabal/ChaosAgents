@@ -1,7 +1,9 @@
 """Tests for config loading."""
-import os
+
 import pytest
-from chaos_agents.config import load_config, ChaosConfig
+
+from chaos_agents.config import load_config
+
 
 def test_load_config_from_env(monkeypatch):
     monkeypatch.setenv("AZURE_OPENAI_API_KEY", "test-key")
@@ -13,6 +15,7 @@ def test_load_config_from_env(monkeypatch):
     assert config.endpoint == "https://test.openai.azure.com/"
     assert config.deployment == "gpt-4o"
     assert config.api_version == "2024-12-01-preview"
+
 
 def test_load_config_missing_key_raises(monkeypatch):
     monkeypatch.delenv("AZURE_OPENAI_API_KEY", raising=False)
